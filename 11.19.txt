@@ -1,0 +1,19 @@
+import java.util.*;
+public class BigEgg2 {
+	public static void main(String[] args) {
+		Set<String> set = new HashSet<>(Arrays.asList("hello", "Thinking", "in", "Java", "exercises", "github"));
+		for(String str:set) {
+			System.out.printf("%-16d%.10s\n", str.hashCode(), str);
+		}
+		Set<String> treeset = new TreeSet<>(set);
+		Set<String> linkedhashset = new LinkedHashSet<>();
+		
+		System.out.println("-------------------------");
+		for(String str:treeset) {
+			linkedhashset.add(str);
+		}
+		for(String str: linkedhashset) {
+			System.out.printf("%-16d%.10s\n", str.hashCode(), str);
+		}
+	}
+}

@@ -1,0 +1,18 @@
+import java.util.*;
+
+class ExtendsObject extends Object {
+	
+}
+public class Main {
+	public static void main(String[] args) {
+		Queue<ExtendsObject> queue = new PriorityQueue<ExtendsObject>();
+		queue.offer(new ExtendsObject());
+		queue.offer(new ExtendsObject());
+	}
+} /* Output:
+Exception in thread "main" java.lang.ClassCastException: ExtendsObject cannot be cast to java.lang.Comparable
+at java.util.PriorityQueue.siftUpComparable(Unknown Source)
+at java.util.PriorityQueue.siftUp(Unknown Source)
+at java.util.PriorityQueue.offer(Unknown Source)
+at Main.main(Main.java:10)
+*///:~

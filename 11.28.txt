@@ -1,0 +1,15 @@
+import java.util.*;
+public class Main {
+	public static void main(String[] args) {
+		Random rand = new Random(47);
+		Queue<Double> queue = new PriorityQueue<Double>();
+		for(int i=0; i<40; i++) {
+			queue.offer(rand.nextDouble());
+		}
+		Double d = queue.poll();
+		while(d != null) {
+			System.out.println(d);
+			d = queue.poll();
+		}
+	}
+}

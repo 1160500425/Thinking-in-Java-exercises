@@ -1,0 +1,41 @@
+import net.mindview.util.*;
+import java.util.*;
+public class BigEgg2 {
+	public static void main(String[] args) {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("hello", 1);
+		map.put("Thingking", 3);
+		map.put("in", 1);
+		map.put("Java", 1);
+		map.put("exercises", 5);
+		map.put("github", 100);
+		for(Map.Entry<String, Integer> entry : map.entrySet()) {
+			System.out.println(entry.hashCode()+"\t"+entry.getKey()+"\t"+entry.getValue());
+		}
+		Map<String, Integer> treemap = new TreeMap<>(map);
+		Map<String, Integer> linkedhashmap = new LinkedHashMap<>();
+		//System.out.println("-----------------------");
+		for(Map.Entry<String, Integer> entry : treemap.entrySet()) {
+			//System.out.println(entry.hashCode()+"\t"+entry.getKey()+"\t"+entry.getValue());
+			linkedhashmap.put(entry.getKey(), entry.getValue());
+		}
+		System.out.println("-----------------------");
+		for(Map.Entry<String, Integer> entry : linkedhashmap.entrySet()) {
+			System.out.println(entry.hashCode()+"\t"+entry.getKey()+"\t"+entry.getValue());
+		}
+	}
+}
+//output
+2301507	Java	1
+-1245635705	github	100
+-678479458	exercises	5
+3364	in	1
+1307556198	Thingking	3
+99162323	hello	1
+-----------------------
+2301507	Java	1
+1307556198	Thingking	3
+-678479458	exercises	5
+-1245635705	github	100
+99162323	hello	1
+3364	in	1

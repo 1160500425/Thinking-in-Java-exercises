@@ -1,0 +1,54 @@
+import java.util.*;
+import typeinfo.pets.*;
+class CollectionSequence implements Collection<Pet>{
+	private Pet[] pets = Pets.createArray(8);
+	public int size() {
+		return pets.length;
+	}
+	public Iterator<Pet> iterator() {
+		return new Iterator<Pet>() {
+			private int i = pets.length;
+			public boolean hasNext() {
+				return i > 0;
+			}
+			public Pet next() {
+				return pets[--i];
+			}
+		};
+	}
+	public boolean contains(Object obj) {
+		if( obj instanceof Pet) {
+			Pet p = (Pet)obj;
+			for(Pet pi:pets) {
+				if(pi.equals(p))	return true;
+			}
+		}
+		return false;
+	}
+	public void clear() {
+		pets = Pets.createArray(0);
+	}
+	public boolean remove(Object obj) {
+		throw new UnsupportedOperationException();
+	}
+	public Object[] toArray() {
+		return Arrays.copyOf(pets, pets.length);
+	}
+	public boolean isEmpty() {
+		return pets.length == 0;
+	}
+	
+}
+
+public class Main {
+    public static void main(String[] args) {
+//    	CollectionSequence a = new CollectionSequence();
+//    	for(Integer i : a) {
+//    		System.out.println(i);
+//    	}
+    	List<Integer> list = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6));
+    	Integer[] a = list.toArray(new Integer[0]);
+    	a[1] = 99;
+    	System.out.println(list);
+    }
+}

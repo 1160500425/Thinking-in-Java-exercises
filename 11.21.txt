@@ -1,0 +1,14 @@
+import net.mindview.util.*;
+import java.util.*;
+public class BigEgg2 {
+	public static void main(String[] args) {
+		Set<String> words = new TreeSet<String> (
+				new TextFile("UniqueWords.java", "\\W+"));
+		Map<String, Integer> map = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+		for(String str:words) {
+			Integer freq = map.get(str);
+			map.put(str, freq==null ? 1 : freq+1);
+		}
+		System.out.println(map);
+	}
+}

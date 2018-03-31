@@ -1,0 +1,48 @@
+import java.util.*;
+
+import polymorphism.shape.*;
+
+class RandomShapeGenerator implements Iterable<Shape>{
+	private final int n;
+	private Random rand = new Random(47);
+	
+	public RandomShapeGenerator(int n) {
+		this.n = n;
+	}
+	private Shape next() {
+		switch (rand.nextInt(3)) {
+		default:
+		case 0:
+			return new Circle();
+		case 1:
+			return new Square();
+		case 2:
+			return new Triangle();
+		}
+	}
+	public Iterator<Shape> iterator() {
+		return new Iterator<Shape>() {
+			private int i = 0;
+			public boolean hasNext() {
+				return i < n;
+			}
+			public Shape next() {
+				i++;
+				return RandomShapeGenerator.this.next();
+			}
+			public boolean remove(Object obj) {
+				throw new UnsupportedOperationException();
+			}
+		};
+	}
+} /// :~
+
+public class Main {
+	public static void main(String[] args) {
+		RandomShapeGenerator a = new RandomShapeGenerator(10);
+		for(Shape shape:a) {
+			shape.draw();
+			shape.erase();
+		}
+	}
+}

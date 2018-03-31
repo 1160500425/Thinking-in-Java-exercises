@@ -1,0 +1,27 @@
+import net.mindview.util.*;
+import java.util.*;
+public class BigEgg2 {
+	public static void main(String[] args) {
+		Set<String> words = new TreeSet<String> (
+				new TextFile("UniqueWords.java", "\\W+"));
+		Set<Character> vowel = new HashSet<>(Arrays.asList('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'));
+		Map<Character, Integer> map = new HashMap<>();
+		int sum = 0;
+		for(String str:words) {
+			int ct = 0;
+			for(int i=0; i<str.length(); i++) {
+				char ch = str.charAt(i);
+				if(vowel.contains(ch)) {
+					Integer freq = map.get(ch);
+					map.put(ch, freq==null ? 1 : 1+freq);
+					ct++;
+				}
+			}
+			sum += ct;
+			System.out.println(str + "\t" + ct);
+		}
+		System.out.println("---------------------------------\n"
+				+ "The total number of vowels is "+sum);
+		System.out.println(map);
+	}
+}
