@@ -1,0 +1,13 @@
+import java.util.regex.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Pattern p = Pattern.compile("[AEIOU]", Pattern.CASE_INSENSITIVE);
+		Matcher m = p.matcher(strings.Splitting.knights);
+		
+		System.out.println(m.replaceAll("-"));
+
+	}
+} /* Output:
+Th-n, wh-n y-- h-v- f--nd th- shr-bb-ry, y-- m-st c-t d-wn th- m-ght--st tr-- -n th- f-r-st... w-th... - h-rr-ng!
+*///:~

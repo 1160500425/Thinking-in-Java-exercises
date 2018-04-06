@@ -1,0 +1,8 @@
+
+public class Main {
+	public static void main(String[] args) {
+		strings.Splitting.split("the|you");
+	}
+} /* Output:
+[Then, when ,  have found ,  shrubbery, ,  must cut down ,  mightiest tree in ,  forest... with... a herring!]
+*///:~

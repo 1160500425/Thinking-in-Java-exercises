@@ -1,0 +1,35 @@
+import java.util.regex.*;
+
+public class Main {
+	public static void main(String[] args) {
+		String [] strs = {
+				"^Java",
+				"\\Breg.*",
+				"n.w\\s+h(a|i)s",
+				"s?",
+				"s+",
+				"s{4}",
+				"s{1}", 
+				"s{0,3}"
+		};
+		
+		for(String str:strs) {
+			Pattern p = Pattern.compile(str);
+			Matcher m = p.matcher("Java now has regular expressions");
+			if(m.find()) {
+				System.out.println("Match \""+m.group()+"\" at positions "+m.start()+"-"+m.end());
+			}
+			else System.out.println("Not Found");
+		}
+
+	}
+} /* Output:
+Match "Java" at positions 0-4
+Not Found
+Match "now has" at positions 5-12
+Match "" at positions 0-0
+Match "s" at positions 11-12
+Not Found
+Match "s" at positions 11-12
+Match "" at positions 0-0
+*///:~

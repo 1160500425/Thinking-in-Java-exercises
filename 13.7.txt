@@ -1,0 +1,13 @@
+import java.util.regex.*;
+public class Main {
+	public static void main(String[] args) {
+		Pattern p = Pattern.compile("^\\p{Upper}.*\\p{Lower}$");
+		Matcher m1 = p.matcher("Format");
+		Matcher m2 = p.matcher("HIT_WLAN");
+		System.out.println(m1.matches());
+		System.out.println(m2.matches());
+	}
+} /* Output:
+true
+false
+*///:~
