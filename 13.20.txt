@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+class Ex20 {
+	private int intField;
+	private long longField;
+	private float floatField;
+	private double doubleField;
+	private String StringField;
+	
+	public Ex20(String str) {
+		Scanner stdin = new Scanner(str);
+		this.intField = stdin.nextInt();
+		this.longField = stdin.nextLong();
+		this.floatField = stdin.nextFloat();
+		this.doubleField = stdin.nextDouble();
+		this.StringField = stdin.next();
+		stdin.close();
+	}
+	
+	public String toString() {
+		return     "intField:    " + intField
+				+"\nlongField:   " + longField
+				+"\nfloatField:  " + floatField
+				+"\ndoubleField: " + doubleField
+				+"\nStringField: " + StringField + "\n";
+	}
+}
+public class Main  {
+	public static void main(String[] args) throws Exception {
+		Ex20 a = new Ex20("12 13 14.1 15.2 HelloWorld");
+		System.out.println(a);
+	}
+	
+} /* Output:
+intField:    12
+longField:   13
+floatField:  14.1
+doubleField: 15.2
+StringField: HelloWorld
+*///:~

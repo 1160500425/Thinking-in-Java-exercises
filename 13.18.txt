@@ -1,0 +1,19 @@
+import java.util.regex.*;
+import net.mindview.util.*;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		if(args.length != 1) {
+			System.out.println("Usage: java Main filename");
+			System.exit(0);
+		}
+		Pattern p = Pattern.compile("\"(.*?)\"");
+		Matcher m = p.matcher(TextFile.read(args[0]));
+		int index = 0;
+		while(m.find()) {
+			System.out.println("-----------"+ ++index + "-----------");
+			System.out.println(m.group(1));
+		}
+		
+  }
+}

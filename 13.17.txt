@@ -1,0 +1,21 @@
+import java.util.regex.*;
+import net.mindview.util.*;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		if(args.length != 1) {
+			System.out.println("Usage: java Main filename");
+			System.exit(0);
+		}
+		Pattern p = Pattern.compile("((?s)/\\*(.*?)\\*/)|((?m)//(.*?)$)");
+		Matcher m = p.matcher(TextFile.read(args[0]));
+		int index = 0;
+		while(m.find()) {
+			String str = m.group(2);
+			if(str == null)	str = m.group(4);
+			System.out.println("-----------"+ ++index + "-----------");
+			System.out.println(str);
+		}
+		
+  }
+}

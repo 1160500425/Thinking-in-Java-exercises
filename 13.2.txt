@@ -1,0 +1,30 @@
+//: strings/InfiniteRecursion.java
+package strings; /* Added by Eclipse.py */
+// Accidental recursion.
+// {RunByHand}
+import java.util.*;
+
+public class InfiniteRecursion {
+  public String toString() {
+    return " InfiniteRecursion address: " + super.toString() + "\n";
+  }
+  public static void main(String[] args) {
+    List<InfiniteRecursion> v =
+      new ArrayList<InfiniteRecursion>();
+    for(int i = 0; i < 10; i++)
+      v.add(new InfiniteRecursion());
+    System.out.println(v);
+  }
+} /* Output
+[ InfiniteRecursion address: strings.InfiniteRecursion@6d06d69c
+,  InfiniteRecursion address: strings.InfiniteRecursion@7852e922
+,  InfiniteRecursion address: strings.InfiniteRecursion@4e25154f
+,  InfiniteRecursion address: strings.InfiniteRecursion@70dea4e
+,  InfiniteRecursion address: strings.InfiniteRecursion@5c647e05
+,  InfiniteRecursion address: strings.InfiniteRecursion@33909752
+,  InfiniteRecursion address: strings.InfiniteRecursion@55f96302
+,  InfiniteRecursion address: strings.InfiniteRecursion@3d4eac69
+,  InfiniteRecursion address: strings.InfiniteRecursion@42a57993
+,  InfiniteRecursion address: strings.InfiniteRecursion@75b84c92
+]
+*///:~
